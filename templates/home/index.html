@@ -1,0 +1,114 @@
+{% extends 'home/base.html' %}
+{% load static %}
+
+{% block 'body' %}
+<div class="container-fluid">
+    <!-- Header Row -->
+    <div class="row justify-content-center text-dark my-3">
+        <div class="col-12">
+            <h1 class="text-center"> <u>Alchemia Story Tools</u> </h1>
+        </div>
+    </div>
+
+    <!-- Main Content Row -->
+    <div class="row justify-content-center text-dark my-3">
+        <!-- Stats Col -->
+        <div class="col-8">
+            <h3 class="text-start"> Character Stats </h3>
+            <!-- Stats Inputs -->
+            <form id="statsForm"> {% csrf_token %}
+                <div class="row row-cols-2 justify-content-start my-3">
+                    <div class="col my-1">
+                        <label for="atkMatk"><h4>Atk/Matk</h4></label><br>
+                        <input type="number" class="form-control" name="atkMatk" id="atkMatk" placeholder="0">
+                        <small id="atkMatkHelp" class="form-text text-muted">Default: 0</small>
+                    </div>
+
+                    <div class="col my-1">
+                        <label for="skill"><h4>Skill%</h4></label><br>
+                        <input type="number" class="form-control" name="skill" id="skill" placeholder="100">
+                        <small id="skillHelp" class="form-text text-muted">Default: 100</small>
+                    </div>
+
+                    <div class="col my-1">
+                        <label for="eleAtk"><h4>Element Atk</h4></label><br>
+                        <input type="number" class="form-control" name="eleAtk" id="eleAtk" placeholder="0">
+                        <small id="eleAtkHelp" class="form-text text-muted">Weakness Element<br>Default: 0</small>
+                    </div>
+
+                    <div class="col my-1">
+                        <label for="enemyDef"><h4>Enemy's Def/Mdef</h4></label><br>
+                        <input type="number" class="form-control" name="enemyDef" id="enemyDef" placeholder="0">
+                        <small id="enemyDefHelp" class="form-text text-muted">Default: 0</small>
+                    </div>
+
+                    <div class="col my-1">
+                        <label for="cdmg"><h4>Critical Damage</h4></label><br>
+                        <input type="number" class="form-control" name="cdmg" id="cdmg" placeholder="0">
+                        <small id="cdmgHelp" class="form-text text-muted">Without hidden 20%<br>Default: 0</small>
+                    </div>
+
+                    <div class="col my-1">
+                        <label for="df"><h4>Damage Factor</h4></label><br>
+                        <input type="number" class="form-control" name="df" id="df" placeholder="0">
+                        <small id="dfHelp" class="form-text text-muted">Default: 0</small>
+                    </div>
+
+                    <!-- <div class="col my-1">
+                        <label for="dmgup"><h4>Enemy's DamageUp</h4></label><br>
+                        <input type="number" class="form-control" name="dmgup" id="dmgup" placeholder="0">
+                        <small id="dmgupHelp" class="form-text text-muted">Default: 0</small>
+                    </div> -->
+
+                    <div class="col my-1">
+                        <label for="atkUp"><h4>Atk/Matk% Up</h4></label>
+                        <input type="number" class="form-control" name="atkUp" id="atkUp" placeholder="0">
+                        <small id="atkUpHelp" class="form-text text-muted">Default: 0</small>
+                    </div>
+
+                    <div class="col my-1">
+                        <label for="hits"><h4>Hits</h4></label>
+                        <input type="number" class="form-control" name="hits" id="hits" placeholder="1">
+                        <small id="hitsHelp" class="form-text text-muted">Default: 1</small>
+                    </div>
+                </div>
+
+                <div class="row justify-content-center my-3">
+                    <div class="col-6">
+                        <input type="submit" class="form-control bg-dark text-light" value="Calculate">
+                    </div>
+                </div>
+
+            </form>
+        </div>
+        <div class="col-1">
+            <hr>
+        </div>
+        <div class="col-3">
+            <h3>Controls</h3>
+            <div class="row row-cols-1">
+                <div class="col my-1">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="eleWeak" style="height: 100px;">
+                        <label class="custom-control-label" for="eleWeak"> <h5>Element Weakness</h5></label>
+                    </div>
+                </div>
+
+                <div class="col my-1">
+                    <div class="custom-control custom-switch">
+                        <input type="checkbox" class="custom-control-input" id="crit" style="height: 100px;">
+                        <label class="custom-control-label" for="crit"> <h5>Critical Hit</h5></label>
+                    </div>
+                </div>
+
+                <div class="col my-1">
+                    <h3 class="text-start"> Damage Output </h3><br>
+                    <h4 id="damage">0</h4>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock 'body' %}

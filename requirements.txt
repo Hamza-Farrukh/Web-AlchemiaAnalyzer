@@ -1,0 +1,6 @@
+flaskwebgui
+flask
+django
+python-dotenv
+auto-py-to-exe
+pyinstaller
